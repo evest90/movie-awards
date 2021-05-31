@@ -1,9 +1,10 @@
 import React from 'react';
+import { StyledButton } from './SelectButton.styles';
 
-export default function SelectButton() {
+export default function SelectButton({ onClick, category, nominee }) {
   return (
-    <button>
-      click me
-    </button>
+    <StyledButton onClick={() => onClick(category, nominee.id)}>
+      Select Nominee
+    </StyledButton>
   )
 }

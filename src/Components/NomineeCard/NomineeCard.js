@@ -2,13 +2,17 @@ import React from 'react';
 import { NomineeImage } from 'Components/NomineeImage';
 import { SelectButton } from 'Components/SelectButton';
 
-export default function NomineeCard({ nominee }) {
-  const { title, photoUrl, id } = nominee;
+import { CardContainer } from './NomineeCard.styles';
+
+export default function NomineeCard({ nominee, onClick, category, $isSelected }) {
+  const { title, photoUrL } = nominee;
   return (
-    <div>
+    <CardContainer $isSelected={$isSelected}>
       <div>{title}</div>
-      <NomineeImage image={photoUrl} />
-      <SelectButton />
-    </div>
+        <NomineeImage image={photoUrL} />
+      <div>
+        <SelectButton onClick={onClick} category={category} nominee={nominee} />
+      </div>
+    </CardContainer>
   )
 }
