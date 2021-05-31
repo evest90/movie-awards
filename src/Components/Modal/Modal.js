@@ -9,7 +9,7 @@ export default function Modal({ onClose, formattedSubmission }) {
         <ModalClose onClick={onClose}>&times;</ModalClose>
         <div><strong>Your Submission</strong></div>
         <div>{formattedSubmission.map(([category, nominee]) => (
-          <div>{category}: {nominee}</div>
+          <div key={nominee}>{category}: {nominee}</div>
         ))}</div>
       </ModalContent>
     </ModalWrapper>

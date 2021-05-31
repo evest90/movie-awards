@@ -77,10 +77,10 @@ const Ballot = () => {
           <ShowNomineesButton onClick={toggleShowSidebar}>{showSidebar ? 'Hide' : 'Show'} selected nominees</ShowNomineesButton>
         </ShowNomineesButtonContainer>
         <Container>
-          {items.map(item => (
+          {items.map((item, index) => (
             <div key={item.id}>
-              <Category category={item.id} />
-              <Row>
+              <Category category={item.id} index={index} />
+              <Row role="row">
                 {item.items.map(nominee => {
                   const cardIsSelected = ballotState[item.id] && ballotState[item.id] === nominee.id;
                   return (<NomineeCard nominee={nominee} key={nominee.id} onClick={onClick} category={item.id} $isSelected={cardIsSelected} />)})}
